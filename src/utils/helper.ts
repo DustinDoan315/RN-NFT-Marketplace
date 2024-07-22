@@ -11,26 +11,23 @@ export const formatPrice = (price: number) => {
 
 export const screenName = {
   home: 'Home',
-  short: 'Short',
-  subscription: 'Subscription',
-  library: 'Library',
-  create: 'Create',
+  wallet: 'Wallet',
+  chart: 'Chart',
+  user: 'User',
 };
 
 export const getIcon = (name: string, focused: boolean) => {
   switch (name) {
     case screenName.home:
       return focused ? icons.home_focus : icons.home;
-    case screenName.short:
-      return focused ? icons.short_focus : icons.short;
-    case screenName.subscription:
-      return focused ? icons.subscribe_focus : icons.subscribe;
-    case screenName.library:
-      return focused ? icons.library_focus : icons.library;
-    case screenName.create:
-      return icons.create;
+    case screenName.wallet:
+      return focused ? icons.wallet_focus : icons.wallet;
+    case screenName.chart:
+      return focused ? icons.chart : icons.chart;
+    case screenName.user:
+      return focused ? icons.user : icons.user;
     default:
-      return icons.library;
+      return icons.home;
   }
 };
 

@@ -4,7 +4,7 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import React, {useState} from 'react';
-import {Image, Pressable, StyleSheet, Text} from 'react-native';
+import {Image, Pressable, StyleSheet, Text, View} from 'react-native';
 
 import router from './router';
 import {bottom} from '@screens/bottom';
@@ -20,33 +20,21 @@ const TabButton: React.FC<
       accessibilityState: any;
     }
   | any
-> = ({name, onPress, accessibilityState, setShowBottomSheet}) => {
+> = ({name, onPress, accessibilityState}) => {
   const focused = accessibilityState?.selected;
 
   return (
     <Pressable
       testID={'bottomBarContainer'}
-      onPress={
-        name !== screenName.create ? onPress : () => setShowBottomSheet(true)
-      }
+      onPress={onPress}
       style={styles.container}>
       <Image
         source={getIcon(name, focused)}
         style={{
-          width: name === screenName.create ? 38 : 24,
-          height: name === screenName.create ? 38 : 24,
+          width: 24,
+          height: 24,
         }}
       />
-      {name !== screenName.create && (
-        <Text
-          style={{
-            color: color.white,
-            marginTop: 5,
-            fontSize: 10,
-          }}>
-          {name}
-        </Text>
-      )}
     </Pressable>
   );
 };
@@ -62,9 +50,11 @@ const BottomContainer = () => {
           headerShown: false,
           tabBarHideOnKeyboard: true,
           tabBarStyle: {
-            height: 48,
+            height: 64,
             paddingBottom: 0,
-            backgroundColor: color.dark,
+            borderTopRightRadius: 20,
+            borderTopLeftRadius: 20,
+            backgroundColor: color.real_white,
           },
         }}>
         <Tab.Screen
@@ -74,6 +64,42 @@ const BottomContainer = () => {
             tabBarShowLabel: false,
             tabBarButton: (props: any) => (
               <TabButton {...props} name={screenName.home} />
+            ),
+            headerLeft: NullComponent,
+          }}
+        />
+
+        <Tab.Screen
+          name={'1'}
+          component={bottom[router.HOME_SCREEN]}
+          options={{
+            tabBarShowLabel: false,
+            tabBarButton: (props: any) => (
+              <TabButton {...props} name={screenName.wallet} />
+            ),
+            headerLeft: NullComponent,
+          }}
+        />
+
+        <Tab.Screen
+          name={'2'}
+          component={bottom[router.HOME_SCREEN]}
+          options={{
+            tabBarShowLabel: false,
+            tabBarButton: (props: any) => (
+              <TabButton {...props} name={screenName.chart} />
+            ),
+            headerLeft: NullComponent,
+          }}
+        />
+
+        <Tab.Screen
+          name={'3'}
+          component={bottom[router.HOME_SCREEN]}
+          options={{
+            tabBarShowLabel: false,
+            tabBarButton: (props: any) => (
+              <TabButton {...props} name={screenName.user} />
             ),
             headerLeft: NullComponent,
           }}

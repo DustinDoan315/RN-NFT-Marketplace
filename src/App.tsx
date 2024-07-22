@@ -20,7 +20,10 @@ const App = () => {
         <SafeAreaView style={styles.container}>
           <Provider store={store}>
             <PersistGate persistor={persistor} loading={null}>
-              <StatusBar barStyle={'light-content'} />
+              <StatusBar
+                backgroundColor={color.white}
+                barStyle={'light-content'}
+              />
               <RootStack />
             </PersistGate>
           </Provider>
@@ -33,7 +36,7 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: color.dark,
+    backgroundColor: color.real_white,
   },
 });
 
