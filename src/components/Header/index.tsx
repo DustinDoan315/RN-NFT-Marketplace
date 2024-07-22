@@ -1,7 +1,6 @@
 import React from 'react';
 import {View, Text, Image, Pressable, StyleSheet} from 'react-native';
 import {icons} from '@assets/index';
-import {width} from '@utils/response';
 import {color} from '@theme/index';
 
 const Header = () => {
@@ -33,9 +32,8 @@ const styles = StyleSheet.create({
   container: {
     justifyContent: 'space-between',
     height: 60,
-    width: width,
-    backgroundColor: color.real_white,
-    paddingHorizontal: 24,
+    width: '100%',
+    backgroundColor: color.white,
     flexDirection: 'row',
     alignItems: 'center',
   },

@@ -1,5 +1,12 @@
 import {icons} from '@assets/index';
 
+const predefinedColors: string[] = ['#FF5733', '#33FF57', '#3357FF', '#F0F033'];
+
+export const getRandomPredefinedColor = (): string => {
+  const randomIndex = Math.floor(Math.random() * predefinedColors.length);
+  return predefinedColors[randomIndex];
+};
+
 const USDollar = new Intl.NumberFormat('en-US', {
   style: 'currency',
   currency: 'USD',

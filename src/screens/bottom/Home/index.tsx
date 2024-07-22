@@ -3,17 +3,19 @@ import React from 'react';
 import {color} from '@theme/index';
 import Header from '@components/Header';
 import TotalBalance from '@components/TotalBalance';
+import Saving from '@components/Saving';
 
 const HomeScreen = () => {
   return (
     <View style={styles.container}>
-      <Text
+      <View
         style={{
-          color: color.primaryText,
+          backgroundColor: color.primaryText,
         }}>
         <Header />
         <TotalBalance />
-      </Text>
+        <Saving />
+      </View>
     </View>
   );
 };
@@ -21,7 +23,8 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
+    alignSelf: 'center',
+    paddingHorizontal: 24,
     backgroundColor: color.white,
   },
 });

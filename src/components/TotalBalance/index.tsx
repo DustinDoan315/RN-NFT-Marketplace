@@ -15,28 +15,34 @@ import {formatPrice} from '@utils/helper';
 const TotalBalance = () => {
   return (
     <View style={styles.container}>
-      <ImageBackground
-        resizeMode="cover"
-        source={icons.balance_bg}
-        style={styles.topSection}>
-        <View style={styles.topContent}>
-          <Text style={styles.topTitle}>Total Balance</Text>
-          <Text style={styles.topAmount}>{`${formatPrice(25000.4)}`}</Text>
-        </View>
-        <View style={styles.walletSection}>
-          <Text style={styles.walletText}>My Wallet</Text>
-          <Pressable style={styles.walletButton}>
-            <Image
-              source={icons.arrow_right}
-              style={styles.arrow}
-              resizeMode="contain"
-            />
-          </Pressable>
-        </View>
-      </ImageBackground>
+      <View
+        style={{
+          width: width - 48,
+          alignSelf: 'center',
+        }}>
+        <ImageBackground
+          resizeMode="contain"
+          source={icons.balance_bg}
+          style={styles.topSection}>
+          <View style={styles.topContent}>
+            <Text style={styles.topTitle}>Total Balance</Text>
+            <Text style={styles.topAmount}>{`${formatPrice(25000.4)}`}</Text>
+          </View>
+          <View style={styles.walletSection}>
+            <Text style={styles.walletText}>My Wallet</Text>
+            <Pressable style={styles.walletButton}>
+              <Image
+                source={icons.arrow_right}
+                style={styles.arrow}
+                resizeMode="contain"
+              />
+            </Pressable>
+          </View>
+        </ImageBackground>
+      </View>
 
       <ImageBackground
-        resizeMode="cover"
+        resizeMode="contain"
         source={icons.balance_bg_2}
         style={styles.bottomSection}>
         <View style={styles.bottomContent}>
@@ -71,16 +77,14 @@ const TotalBalance = () => {
 
 const styles = StyleSheet.create({
   container: {
-    width: width,
+    width: width - 48,
     paddingVertical: 12,
-    backgroundColor: color.real_white,
-    paddingHorizontal: 24,
+    backgroundColor: color.white,
   },
   topSection: {
     paddingVertical: 16,
     width: '100%',
     height: 138,
-    alignContent: 'center',
   },
   topContent: {
     paddingHorizontal: 24,
