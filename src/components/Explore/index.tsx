@@ -5,7 +5,7 @@ import {color} from '@theme/index';
 import {width} from '@utils/response';
 
 const Explore = () => {
-  const [focusedItem, setFocusedItem] = useState<string | number>('');
+  const [focusedItem, setFocusedItem] = useState<string | number>(1);
 
   return (
     <View style={styles.container}>

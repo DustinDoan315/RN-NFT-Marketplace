@@ -5,11 +5,12 @@ import {color} from '@theme/index';
 import {root} from '@navigation/NavigationRef';
 
 type HeaderProps = {
-  title: string;
+  title?: string;
   rightIcon?: any;
+  isBack?: boolean;
 };
 
-const HeaderTitle = ({title, rightIcon}: HeaderProps) => {
+const HeaderTitle = ({title = '', rightIcon, isBack}: HeaderProps) => {
   return (
     <View style={styles.container}>
       <Pressable onPress={() => root.goBack()} style={styles.leftSection}>
@@ -18,6 +19,18 @@ const HeaderTitle = ({title, rightIcon}: HeaderProps) => {
           style={styles.icon}
           resizeMode="contain"
         />
+
+        {isBack && (
+          <Text
+            style={{
+              fontSize: 18,
+              color: color.primaryText,
+              fontWeight: '500',
+              marginLeft: 5,
+            }}>
+            Back
+          </Text>
+        )}
       </Pressable>
       <View style={styles.textContainer}>
         <Text style={styles.titleText}>{title}</Text>

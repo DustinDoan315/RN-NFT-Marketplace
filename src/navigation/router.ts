@@ -20,4 +20,5 @@ export default {
   //common container
   SAVING_SCREEN: 'SAVING_SCREEN',
   NFT_DETAIL_SCREEN: 'NFT_DETAIL_SCREEN',
+  USER_INFO_SCREEN: 'USER_INFO_SCREEN',
 };

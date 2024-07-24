@@ -33,7 +33,7 @@ const HomeScreen = () => {
             );
           }}
           renderItem={({item, index}) => {
-            return <NftCard />;
+            return <NftCard index={index} />;
           }}
           onBlankArea={onBlankArea}
           contentContainerStyle={{

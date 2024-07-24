@@ -18,6 +18,11 @@ const CommonNavigation = () => {
         name={router.NFT_DETAIL_SCREEN}
         component={common[router.NFT_DETAIL_SCREEN]}
       />
+
+      <CommonStack.Screen
+        name={router.USER_INFO_SCREEN}
+        component={common[router.USER_INFO_SCREEN]}
+      />
     </CommonStack.Navigator>
   );
 };

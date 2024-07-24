@@ -3,7 +3,7 @@ export const color = {
   highlight: '#FA6603',
   secondText: '#535354',
   primaryText: '#111315',
-  primaryBorder: '#9D9D9D',
+  primaryBorder: '#A5A3A3',
   white: '#F3F3F3',
   real_white: '#FFFFFF',
   crimson: '#F84B4B',

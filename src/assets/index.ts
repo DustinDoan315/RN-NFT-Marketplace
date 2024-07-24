@@ -65,6 +65,7 @@ export const icons = {
   nft_4: require('./AppIcons/nft_4.png'),
   add_bid: require('./AppIcons/add_bid.png'),
   minus_bid: require('./AppIcons/minus_bid.png'),
+  bg_img: require('./AppIcons/bg_img.png'),
 
   //bottom bar icons
   home_focus: require('./AppIcons/home_focus.png'),

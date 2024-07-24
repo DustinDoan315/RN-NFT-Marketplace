@@ -27,6 +27,8 @@ export const ListData = [
   },
 ];
 
+export const images = [icons.nft_1, icons.nft_2, icons.nft_3, icons.nft_4];
+
 export const ExploreData = [
   {
     id: 1,

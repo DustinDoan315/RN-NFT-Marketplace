@@ -4,9 +4,9 @@ import {color} from '@theme/index';
 import {icons} from '@assets/index';
 import {commonRoot} from '@navigation/NavigationRef';
 import router from '@navigation/router';
-const images = [icons.nft_1, icons.nft_2, icons.nft_3, icons.nft_4];
+import {images} from '@utils/fake';
 
-const NftCard = () => {
+const NftCard = ({index}: any) => {
   const [randomImage, setRandomImage] = useState<any>(icons.nft_1);
 
   useEffect(() => {
@@ -16,6 +16,10 @@ const NftCard = () => {
 
   const handlePlaceBid = () => {
     commonRoot.navigate(router.NFT_DETAIL_SCREEN, {image: randomImage});
+  };
+
+  const handleSeeUserInfo = (index: number) => {
+    commonRoot.navigate(router.USER_INFO_SCREEN, {user_id: index});
   };
 
   return (
@@ -59,7 +63,7 @@ const NftCard = () => {
           </Text>
         </View>
 
-        <Pressable>
+        <Pressable onPress={() => handleSeeUserInfo(index)}>
           <Image
             resizeMode="contain"
             source={icons.more_black}
