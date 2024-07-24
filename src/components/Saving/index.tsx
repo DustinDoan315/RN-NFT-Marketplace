@@ -1,15 +1,22 @@
-import {View, Text, FlatList, StyleSheet} from 'react-native';
+import {View, Text, FlatList, StyleSheet, Pressable} from 'react-native';
 import React from 'react';
 import {color} from '@theme/index';
 import ChildItem from './ChildItem';
 import {getRandomPredefinedColor} from '@utils/helper';
+import {commonRoot} from '@navigation/NavigationRef';
+import router from '@navigation/router';
 
 const Saving = () => {
+  const handleSeeAll = () => {
+    commonRoot.navigate(router.SAVING_SCREEN);
+  };
   return (
     <View style={styles.container}>
       <View style={styles.header}>
         <Text style={styles.headerTitle}>Savings</Text>
-        <Text style={styles.headerLink}>See All</Text>
+        <Pressable onPress={handleSeeAll}>
+          <Text style={styles.headerLink}>See All</Text>
+        </Pressable>
       </View>
       <View
         style={{

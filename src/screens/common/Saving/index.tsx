@@ -1,12 +1,10 @@
-import {View, StyleSheet} from 'react-native';
+import {View} from 'react-native';
 import React, {useEffect, useRef} from 'react';
-import {color} from '@theme/index';
-import Header from '@components/Header';
-import Explore from '@components/Explore';
+import HeaderTitle from '@components/HeaderTitle';
+import CardItem from './CardItem';
 import {FlashList, useBlankAreaTracker} from '@shopify/flash-list';
-import NftCard from '@components/NftCard';
 
-const HomeScreen = () => {
+const Saving = () => {
   const ref = useRef(null);
   const [blankAreaTrackerResult, onBlankArea] = useBlankAreaTracker(ref);
 
@@ -17,23 +15,17 @@ const HomeScreen = () => {
   }, []);
 
   return (
-    <View style={styles.container}>
+    <View>
+      <HeaderTitle title={'Saving'} />
+
       <View style={{width: '100%', height: '100%'}}>
         <FlashList
           ref={ref}
           keyExtractor={(_, index) => index.toString()}
           estimatedItemSize={20}
-          data={Array(100).fill(true)}
-          ListHeaderComponent={() => {
-            return (
-              <View>
-                <Header />
-                <Explore />
-              </View>
-            );
-          }}
+          data={Array(10000).fill(true)}
           renderItem={({item, index}) => {
-            return <NftCard />;
+            return <CardItem />;
           }}
           onBlankArea={onBlankArea}
           contentContainerStyle={{
@@ -45,11 +37,4 @@ const HomeScreen = () => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    alignSelf: 'center',
-    backgroundColor: color.white,
-  },
-});
-
-export default HomeScreen;
+export default Saving;

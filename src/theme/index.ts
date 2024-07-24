@@ -1,8 +1,8 @@
 export const color = {
   primary: '#F3B78F',
   highlight: '#FA6603',
-  secondText: '#A6A6AA',
-  primaryText: '#3A3A3A',
+  secondText: '#535354',
+  primaryText: '#111315',
   primaryBorder: '#9D9D9D',
   white: '#F3F3F3',
   real_white: '#FFFFFF',
@@ -13,5 +13,5 @@ export const color = {
   dark_light_1: '#272727',
   dark_light_2: '#373737',
   loading: '#333333',
-  blue_1: '#5CA4F8',
+  blue_1: '#2234CF',
 };

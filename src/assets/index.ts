@@ -57,6 +57,14 @@ export const icons = {
   arrow_right: require('./AppIcons/arrow_right.png'),
   balance_bg: require('./AppIcons/balance_bg.png'),
   balance_bg_2: require('./AppIcons/balance_bg_2.png'),
+  arrow_right_black: require('./AppIcons/arrow_right_black.png'),
+  add: require('./AppIcons/add.png'),
+  nft_1: require('./AppIcons/nft_1.png'),
+  nft_2: require('./AppIcons/nft_2.png'),
+  nft_3: require('./AppIcons/nft_3.png'),
+  nft_4: require('./AppIcons/nft_4.png'),
+  add_bid: require('./AppIcons/add_bid.png'),
+  minus_bid: require('./AppIcons/minus_bid.png'),
 
   //bottom bar icons
   home_focus: require('./AppIcons/home_focus.png'),

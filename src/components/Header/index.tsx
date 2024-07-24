@@ -1,29 +1,23 @@
 import React from 'react';
-import {View, Text, Image, Pressable, StyleSheet} from 'react-native';
+import {View, Text, Image, StyleSheet} from 'react-native';
 import {icons} from '@assets/index';
 import {color} from '@theme/index';
 
 const Header = () => {
   return (
     <View style={styles.container}>
+      <View style={styles.textContainer}>
+        <Text style={styles.nameText}>
+          Explore the best NFT art in the world
+        </Text>
+      </View>
       <View style={styles.leftSection}>
         <Image
           source={icons.avatar_2}
           style={styles.avatar}
           resizeMode="contain"
         />
-        <View style={styles.textContainer}>
-          <Text style={styles.greetingText}>Good Morning!</Text>
-          <Text style={styles.nameText}>Dustin Doan</Text>
-        </View>
       </View>
-      <Pressable>
-        <Image
-          source={icons.bell_on}
-          style={styles.bellIcon}
-          resizeMode="contain"
-        />
-      </Pressable>
     </View>
   );
 };
@@ -34,6 +28,7 @@ const styles = StyleSheet.create({
     height: 60,
     width: '100%',
     backgroundColor: color.white,
+    paddingHorizontal: 12,
     flexDirection: 'row',
     alignItems: 'center',
   },
@@ -46,20 +41,12 @@ const styles = StyleSheet.create({
     height: 32,
   },
   textContainer: {
-    marginLeft: 12,
-  },
-  greetingText: {
-    fontSize: 12,
-    color: color.primaryText,
+    maxWidth: '50%',
   },
   nameText: {
     fontSize: 18,
-    fontWeight: '500',
+    fontWeight: 'bold',
     color: color.primaryText,
-  },
-  bellIcon: {
-    width: 24,
-    height: 24,
   },
 });
 
