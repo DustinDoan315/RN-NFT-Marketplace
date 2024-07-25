@@ -18,21 +18,21 @@ export const formatPrice = (price: number) => {
 
 export const screenName = {
   home: 'Home',
-  wallet: 'Wallet',
-  chart: 'Chart',
-  user: 'User',
+  add: 'Add',
+  search: 'Search',
+  chat: 'Chat',
 };
 
 export const getIcon = (name: string, focused: boolean) => {
   switch (name) {
     case screenName.home:
       return focused ? icons.home_focus : icons.home;
-    case screenName.wallet:
-      return focused ? icons.wallet_focus : icons.wallet;
-    case screenName.chart:
-      return focused ? icons.chart : icons.chart;
-    case screenName.user:
-      return focused ? icons.user : icons.user;
+    case screenName.add:
+      return focused ? icons.add_bottom_focus : icons.add_bottom;
+    case screenName.search:
+      return focused ? icons.search_bottom_focus : icons.search_bottom;
+    case screenName.chat:
+      return focused ? icons.chat_bottom_focus : icons.chat_bottom;
     default:
       return icons.home;
   }

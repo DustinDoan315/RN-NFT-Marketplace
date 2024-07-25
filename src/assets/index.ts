@@ -70,8 +70,10 @@ export const icons = {
   //bottom bar icons
   home_focus: require('./AppIcons/home_focus.png'),
   home: require('./AppIcons/home.png'),
-  wallet_focus: require('./AppIcons/wallet_focus.png'),
-  wallet: require('./AppIcons/wallet.png'),
-  chart: require('./AppIcons/chart.png'),
-  user: require('./AppIcons/user.png'),
+  add_bottom_focus: require('./AppIcons/add_bottom_focus.png'),
+  add_bottom: require('./AppIcons/add_bottom.png'),
+  chat_bottom_focus: require('./AppIcons/chat_bottom_focus.png'),
+  chat_bottom: require('./AppIcons/chat_bottom.png'),
+  search_bottom_focus: require('./AppIcons/search_bottom_focus.png'),
+  search_bottom: require('./AppIcons/search_bottom.png'),
 };

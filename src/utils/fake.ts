@@ -55,3 +55,41 @@ export const ExploreData = [
     title: 'Following',
   },
 ];
+
+export const NftCardList = [
+  {
+    key: 1,
+    author: 'John Smith',
+    avatar: icons.avatar_2,
+    current_bid: 0.008,
+    nft: icons.nft_1,
+  },
+  {
+    key: 2,
+    author: 'Dustin Doan',
+    avatar: icons.avatar_2,
+    current_bid: 0.007,
+    nft: icons.nft_2,
+  },
+  {
+    key: 3,
+    author: 'John Smith',
+    avatar: icons.avatar_2,
+    current_bid: 0.008,
+    nft: icons.nft_3,
+  },
+  {
+    key: 4,
+    author: 'John Smith',
+    avatar: icons.avatar_2,
+    current_bid: 0.009,
+    nft: icons.nft_4,
+  },
+  {
+    key: 5,
+    author: 'John Smith',
+    avatar: icons.avatar_2,
+    current_bid: 0.006,
+    nft: icons.nft_2,
+  },
+];

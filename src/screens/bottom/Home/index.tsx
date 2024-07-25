@@ -5,6 +5,7 @@ import Header from '@components/Header';
 import Explore from '@components/Explore';
 import {FlashList, useBlankAreaTracker} from '@shopify/flash-list';
 import NftCard from '@components/NftCard';
+import {NftCardList} from '@utils/fake';
 
 const HomeScreen = () => {
   const ref = useRef(null);
@@ -23,7 +24,7 @@ const HomeScreen = () => {
           ref={ref}
           keyExtractor={(_, index) => index.toString()}
           estimatedItemSize={20}
-          data={Array(100).fill(true)}
+          data={NftCardList}
           ListHeaderComponent={() => {
             return (
               <View>
@@ -33,7 +34,7 @@ const HomeScreen = () => {
             );
           }}
           renderItem={({item, index}) => {
-            return <NftCard index={index} />;
+            return <NftCard item={item} index={index} />;
           }}
           onBlankArea={onBlankArea}
           contentContainerStyle={{

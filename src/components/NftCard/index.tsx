@@ -6,7 +6,7 @@ import {commonRoot} from '@navigation/NavigationRef';
 import router from '@navigation/router';
 import {images} from '@utils/fake';
 
-const NftCard = ({index}: any) => {
+const NftCard = ({item, index}: any) => {
   const [randomImage, setRandomImage] = useState<any>(icons.nft_1);
 
   useEffect(() => {
@@ -45,7 +45,7 @@ const NftCard = ({index}: any) => {
           }}>
           <Image
             resizeMode="contain"
-            source={icons.avatar_2}
+            source={item?.avatar}
             style={{
               width: 64,
               height: 64,
@@ -59,7 +59,7 @@ const NftCard = ({index}: any) => {
               fontWeight: 'bold',
               color: color.primaryText,
             }}>
-            Dustin Doan
+            {item?.author}
           </Text>
         </View>
 
@@ -77,7 +77,7 @@ const NftCard = ({index}: any) => {
 
       <Image
         resizeMode="contain"
-        source={randomImage}
+        source={item?.nft}
         style={{
           width: '100%',
           height: 400,
@@ -105,7 +105,7 @@ const NftCard = ({index}: any) => {
               fontWeight: '500',
               color: color.primaryText,
             }}>
-            0.08 ETH
+            {item?.current_bid} ETH
           </Text>
         </View>
 

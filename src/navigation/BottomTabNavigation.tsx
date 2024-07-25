@@ -35,6 +35,15 @@ const TabButton: React.FC<
           height: 24,
         }}
       />
+
+      <Text
+        style={{
+          fontSize: 14,
+          marginTop: 3,
+          color: focused ? color.blue_1 : color.secondText,
+        }}>
+        {name}
+      </Text>
     </Pressable>
   );
 };
@@ -70,36 +79,36 @@ const BottomContainer = () => {
         />
 
         <Tab.Screen
-          name={'1'}
+          name={'Add'}
           component={bottom[router.HOME_SCREEN]}
           options={{
             tabBarShowLabel: false,
             tabBarButton: (props: any) => (
-              <TabButton {...props} name={screenName.wallet} />
+              <TabButton {...props} name={screenName.add} />
             ),
             headerLeft: NullComponent,
           }}
         />
 
         <Tab.Screen
-          name={'2'}
+          name={'Search'}
           component={bottom[router.HOME_SCREEN]}
           options={{
             tabBarShowLabel: false,
             tabBarButton: (props: any) => (
-              <TabButton {...props} name={screenName.chart} />
+              <TabButton {...props} name={screenName.search} />
             ),
             headerLeft: NullComponent,
           }}
         />
 
         <Tab.Screen
-          name={'3'}
+          name={'Chat'}
           component={bottom[router.HOME_SCREEN]}
           options={{
             tabBarShowLabel: false,
             tabBarButton: (props: any) => (
-              <TabButton {...props} name={screenName.user} />
+              <TabButton {...props} name={screenName.chat} />
             ),
             headerLeft: NullComponent,
           }}
