@@ -6,6 +6,7 @@ export default {
 
   //bottom container
   HOME_SCREEN: 'HOME_SCREEN',
+  ADD_SCREEN: 'ADD_SCREEN',
   SHORT_SCREEN: 'SHORT_SCREEN',
   SUBSCRIPTION: 'SUBSCRIPTION',
   LIBRARY: 'LIBRARY',

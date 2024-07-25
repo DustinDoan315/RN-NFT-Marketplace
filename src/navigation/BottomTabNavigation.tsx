@@ -79,8 +79,8 @@ const BottomContainer = () => {
         />
 
         <Tab.Screen
-          name={'Add'}
-          component={bottom[router.HOME_SCREEN]}
+          name={router.ADD_SCREEN}
+          component={bottom[router.ADD_SCREEN]}
           options={{
             tabBarShowLabel: false,
             tabBarButton: (props: any) => (
