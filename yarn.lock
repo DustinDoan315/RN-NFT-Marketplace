@@ -5068,6 +5068,7 @@ __metadata:
     react-redux: ^9.1.2
     react-test-renderer: 18.2.0
     redux-persist: ^6.0.0
+    socket.io-client: ^4.7.5
     typescript: 5.0.4
     viem: ^2.18.0
     wagmi: ^2.12.0
@@ -13573,7 +13574,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"socket.io-client@npm:^4.5.1":
+"socket.io-client@npm:^4.5.1, socket.io-client@npm:^4.7.5":
   version: 4.7.5
   resolution: "socket.io-client@npm:4.7.5"
   dependencies:

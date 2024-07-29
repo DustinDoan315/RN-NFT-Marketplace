@@ -23,6 +23,11 @@ const CommonNavigation = () => {
         name={router.USER_INFO_SCREEN}
         component={common[router.USER_INFO_SCREEN]}
       />
+
+      <CommonStack.Screen
+        name={router.MESSAGING_SCREEN}
+        component={common[router.MESSAGING_SCREEN]}
+      />
     </CommonStack.Navigator>
   );
 };

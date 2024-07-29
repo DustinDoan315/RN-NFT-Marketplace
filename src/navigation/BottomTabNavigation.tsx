@@ -103,8 +103,8 @@ const BottomContainer = () => {
         />
 
         <Tab.Screen
-          name={'Chat'}
-          component={bottom[router.HOME_SCREEN]}
+          name={router.CHAT_SCREEN}
+          component={bottom[router.CHAT_SCREEN]}
           options={{
             tabBarShowLabel: false,
             tabBarButton: (props: any) => (
