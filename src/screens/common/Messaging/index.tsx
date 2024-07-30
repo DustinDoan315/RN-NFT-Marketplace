@@ -7,28 +7,15 @@ import MessageComponent from '@components/MessageComponent';
 import socket from '@utils/socket';
 import {color} from '@theme/index';
 import HeaderTitle from '@components/HeaderTitle';
+import {useAppSelector} from '@redux/hooks';
+import {RootState} from '@redux/store';
 
 const Messaging = ({route}: any) => {
-  const [user, setUser] = useState('');
-  const {name, id} = route.params;
+  const user = useAppSelector((state: RootState) => state.user);
 
-  console.log('====================================');
-  console.log(route.params);
-  console.log('====================================');
-
-  const [chatMessages, setChatMessages] = useState([]);
+  const {id} = route.params;
+  const [chatMessages, setChatMessages] = useState<any[]>([]);
   const [message, setMessage] = useState('');
-
-  const getUsername = async () => {
-    try {
-      const value = await AsyncStorage.getItem('username');
-      if (value !== null) {
-        setUser(value);
-      }
-    } catch (e) {
-      console.error('Error while loading username!');
-    }
-  };
 
   const handleNewMessage = () => {
     const hour =
@@ -45,14 +32,13 @@ const Messaging = ({route}: any) => {
       socket.emit('newMessage', {
         message,
         room_id: id,
-        user: 'Dustin',
+        user: user?.name,
         timestamp: {hour, mins},
       });
     }
   };
 
   useLayoutEffect(() => {
-    getUsername();
     socket.emit('findRoom', id);
     socket.on('foundRoom', (roomChats: any) => setChatMessages(roomChats));
   }, []);
@@ -73,10 +59,18 @@ const Messaging = ({route}: any) => {
         {chatMessages[0] ? (
           <FlatList
             data={chatMessages}
-            renderItem={({item}) => (
-              <MessageComponent item={item} user={'Dustin'} />
-            )}
-            keyExtractor={(item: any) => item.id.toString()}
+            renderItem={({item, index}: any) => {
+              const showAvatar =
+                index === 0 || chatMessages[index - 1]?.user !== item?.user;
+              return (
+                <MessageComponent
+                  showAvatar={showAvatar}
+                  item={item}
+                  user={user?.name}
+                />
+              );
+            }}
+            keyExtractor={item => item.id.toString()}
           />
         ) : (
           ''

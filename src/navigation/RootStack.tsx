@@ -5,6 +5,7 @@ import {navigationRef} from './NavigationRef';
 import BottomTabNavigation from './BottomTabNavigation';
 import CommonNavigation from './CommonNavigation';
 import router from './router';
+import AuthNavigation from './AuthNavigation';
 
 const Stack = createNativeStackNavigator();
 
@@ -15,6 +16,11 @@ const RootStack = () => {
         <Stack.Screen
           name={router.BOTTOM_NAVIGATION}
           component={BottomTabNavigation}
+          options={{gestureEnabled: false}}
+        />
+        <Stack.Screen
+          name={router.AUTH_NAVIGATION}
+          component={AuthNavigation}
           options={{gestureEnabled: false}}
         />
         <Stack.Screen

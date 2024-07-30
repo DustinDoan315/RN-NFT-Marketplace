@@ -1,8 +1,9 @@
-import {View, Text} from 'react-native';
+import {View, Text, Image} from 'react-native';
 import React from 'react';
 import {styles} from '@utils/styles';
+import {icons} from '@assets/index';
 
-export default function MessageComponent({item, user}: any) {
+export default function MessageComponent({item, showAvatar, user}: any) {
   const status = item.user !== user;
 
   return (
@@ -13,6 +14,17 @@ export default function MessageComponent({item, user}: any) {
             ? styles.mmessageWrapper
             : [styles.mmessageWrapper, {alignItems: 'flex-end'}]
         }>
+        {showAvatar && (
+          <Image
+            resizeMode="contain"
+            source={icons.avatar_2}
+            style={{
+              width: 24,
+              height: 24,
+              marginBottom: 5,
+            }}
+          />
+        )}
         <View style={{flexDirection: 'row', alignItems: 'center'}}>
           <View
             style={

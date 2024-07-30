@@ -1,5 +1,6 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 import {UserState} from '@utils/interfaces';
+import {Alert} from 'react-native';
 
 const initialState: UserState = {
   name: '',
@@ -39,6 +40,7 @@ export const userSlice = createSlice({
       ) {
         state.isLoggedIn = true;
       }
+      Alert.alert('Account not found');
     },
     logout(state) {
       state.isLoggedIn = false;
