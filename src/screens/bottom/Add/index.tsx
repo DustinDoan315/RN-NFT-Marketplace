@@ -8,6 +8,8 @@ import {
   W3mButton,
   Web3Modal,
 } from '@web3modal/wagmi-react-native';
+import {useEffect} from 'react';
+import {contractInstance} from '@utils/web3';
 
 // 0. Setup queryClient
 const queryClient = new QueryClient();
@@ -40,6 +42,19 @@ createWeb3Modal({
 });
 
 export default function AddScreen() {
+  useEffect(() => {
+    contractInstance &&
+      contractInstance.methods
+        .owner()
+        .call()
+        .then((ownerAddress: string) => {
+          console.log('Owner address:', ownerAddress);
+        })
+        .catch((error: any) => {
+          console.error('Error calling owner method:', error);
+        });
+  }, []);
+
   return (
     <WagmiProvider config={wagmiConfig}>
       <QueryClientProvider client={queryClient}>

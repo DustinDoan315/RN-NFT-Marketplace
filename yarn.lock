@@ -4282,6 +4282,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/web3@npm:^1.2.2":
+  version: 1.2.2
+  resolution: "@types/web3@npm:1.2.2"
+  dependencies:
+    web3: "*"
+  checksum: 9900fa44c1b14a5dda254b905cb6322d794c5fc44c0320967365c7b8aeebc04bcdde9cd51290a1576f551941ab1c709f96b388f115b7e38f37615b5588147661
+  languageName: node
+  linkType: hard
+
 "@types/ws@npm:8.5.3":
   version: 8.5.3
   resolution: "@types/ws@npm:8.5.3"
@@ -5036,6 +5045,7 @@ __metadata:
     "@types/react": ^18.2.6
     "@types/react-redux": ^7.1.33
     "@types/react-test-renderer": ^18.0.0
+    "@types/web3": ^1.2.2
     "@walletconnect/react-native-compat": ^2.14.0
     "@web3modal/wagmi-react-native": ^2.0.0
     add: ^2.0.6
@@ -15051,7 +15061,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"web3@npm:^4.11.1":
+"web3@npm:*, web3@npm:^4.11.1":
   version: 4.11.1
   resolution: "web3@npm:4.11.1"
   dependencies:
