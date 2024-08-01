@@ -3,15 +3,17 @@ import {persistReducer, persistStore} from 'redux-persist';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import userReducer from './user/userSlice';
 import videoReducer from './video/videoSlice';
+import walletReducer from './wallet/walletSlice';
 
 const persistConfig = {
   storage: AsyncStorage,
   key: 'root',
-  whitelist: ['user', 'video'],
+  whitelist: ['user', 'video', 'wallet'],
 };
 const rootReducer = combineReducers({
   user: userReducer,
   video: videoReducer,
+  wallet: walletReducer,
 });
 
 export const persistedReducer = persistReducer(persistConfig, rootReducer);

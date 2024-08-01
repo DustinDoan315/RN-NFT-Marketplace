@@ -8,46 +8,54 @@ import {
   W3mButton,
   Web3Modal,
 } from '@web3modal/wagmi-react-native';
-import {useEffect} from 'react';
-import {contractInstance} from '@utils/web3';
+import {memo, useEffect} from 'react';
+import {marketplaceInstance, nftInstance} from '@utils/web3';
+import {Button} from 'react-native';
+import {useAppDispatch, useAppSelector} from '@redux/hooks';
+import {RootState} from '@redux/store';
+import {setWalletInfo} from '@redux/wallet/walletSlice';
+import {randomInt} from 'crypto';
+import {
+  metadataWalletConnect,
+  mintNft,
+  projectIdWalletConnect,
+} from '@utils/helper';
 
-// 0. Setup queryClient
 const queryClient = new QueryClient();
-
-// 1. Get projectId at https://cloud.walletconnect.com
-const projectId = 'a21f4935aa965b70bd440d5ea8be7fae';
-
-// 2. Create config
-const metadata = {
-  name: 'AppKit RN',
-  description: 'NFT MarketPlace',
-  url: 'https://walletconnect.com',
-  icons: ['https://avatars.githubusercontent.com/u/37784886'],
-  redirect: {
-    native: 'YOUR_APP_SCHEME://',
-    universal: 'YOUR_APP_UNIVERSAL_LINK.com',
-  },
-};
 
 const chains = [mainnet, polygon, arbitrum] as const;
 
-const wagmiConfig = defaultWagmiConfig({chains, projectId, metadata});
+const projectId = projectIdWalletConnect;
 
-// 3. Create modal
+const metadata = metadataWalletConnect;
+
+const wagmiConfig = defaultWagmiConfig({
+  chains,
+  projectId,
+  metadata,
+});
+
 createWeb3Modal({
   projectId,
   wagmiConfig,
-  defaultChain: mainnet, // Optional
-  enableAnalytics: true, // Optional - defaults to your Cloud configuration
+  defaultChain: mainnet,
+  enableAnalytics: true,
 });
 
-export default function AddScreen() {
+const AddScreen = () => {
+  const dispatch = useAppDispatch();
+  const wallet = useAppSelector((state: RootState) => state.wallet);
+  console.log(wallet);
   useEffect(() => {
-    contractInstance &&
-      contractInstance.methods
+    marketplaceInstance &&
+      marketplaceInstance.methods
         .owner()
         .call()
         .then((ownerAddress: string) => {
+          addWalletInfo(
+            '0x70B255CF9827E1E0C9a5cc889D71Beef3E2f6Bb4',
+            ownerAddress.toString(),
+          );
           console.log('Owner address:', ownerAddress);
         })
         .catch((error: any) => {
@@ -55,12 +63,23 @@ export default function AddScreen() {
         });
   }, []);
 
+  const addWalletInfo = (wallet_address: string, owner_address?: string) => {
+    dispatch(setWalletInfo({wallet_address, owner_address}));
+  };
+
+  const mintToken = async () => {
+    const tx = await mintNft(wallet.wallet_address);
+  };
+
   return (
     <WagmiProvider config={wagmiConfig}>
       <QueryClientProvider client={queryClient}>
-        <W3mButton />
-        <Web3Modal />
+        {/* <W3mButton />
+        <Web3Modal /> */}
+
+        <Button onPress={mintToken} title="Mint token" />
       </QueryClientProvider>
     </WagmiProvider>
   );
-}
+};
+export default memo(AddScreen);
