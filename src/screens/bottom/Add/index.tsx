@@ -13,9 +13,10 @@ import {marketplaceInstance, nftInstance} from '@utils/web3';
 import {Button} from 'react-native';
 import {useAppDispatch, useAppSelector} from '@redux/hooks';
 import {RootState} from '@redux/store';
-import {setWalletInfo} from '@redux/wallet/walletSlice';
+import {setListNfts, setWalletInfo} from '@redux/wallet/walletSlice';
 import {randomInt} from 'crypto';
 import {
+  getTokenByAddress,
   metadataWalletConnect,
   mintNft,
   projectIdWalletConnect,
@@ -71,13 +72,19 @@ const AddScreen = () => {
     const tx = await mintNft(wallet.wallet_address);
   };
 
+  const getListNFTs = async () => {
+    const listNFTs = await getTokenByAddress(wallet.wallet_address);
+    dispatch(setListNfts({list: listNFTs}));
+  };
+
   return (
     <WagmiProvider config={wagmiConfig}>
       <QueryClientProvider client={queryClient}>
         {/* <W3mButton />
         <Web3Modal /> */}
 
-        <Button onPress={mintToken} title="Mint token" />
+        <Button onPress={mintToken} title="Mint Token" />
+        <Button onPress={getListNFTs} title="Get List Token" />
       </QueryClientProvider>
     </WagmiProvider>
   );

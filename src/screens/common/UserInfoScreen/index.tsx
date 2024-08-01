@@ -12,9 +12,9 @@ import AvatarInfo from '@components/AvatarInfo';
 import {icons} from '@assets/index';
 import {FlashList} from '@shopify/flash-list';
 import {color} from '@theme/index';
-import CollectionItem from './CollectionItem';
 import WallBG from './WallBG';
 import Follower from './Follower';
+import {CollectionNFT} from '@components/index';
 
 const UserInfoScreen = ({route}: any) => {
   const {image} = route.params;
@@ -61,7 +61,7 @@ const UserInfoScreen = ({route}: any) => {
             );
           }}
           renderItem={({item, index}) => {
-            return <CollectionItem index={index} />;
+            return <CollectionNFT item={item} index={index} />;
           }}
           ListFooterComponent={() => {
             return <View style={{height: 200}} />;

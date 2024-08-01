@@ -91,8 +91,8 @@ const BottomContainer = () => {
         />
 
         <Tab.Screen
-          name={'Search'}
-          component={bottom[router.HOME_SCREEN]}
+          name={router.LIST_NFT_SCREEN}
+          component={bottom[router.LIST_NFT_SCREEN]}
           options={{
             tabBarShowLabel: false,
             tabBarButton: (props: any) => (

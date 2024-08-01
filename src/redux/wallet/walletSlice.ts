@@ -3,11 +3,13 @@ import {createSlice, PayloadAction} from '@reduxjs/toolkit';
 interface WalletState {
   wallet_address: string;
   owner_contract_address?: string;
+  listNFTs?: number[];
 }
 
 const initialState: WalletState = {
   wallet_address: '',
   owner_contract_address: '',
+  listNFTs: [],
 };
 
 const walletSlice = createSlice({
@@ -24,6 +26,10 @@ const walletSlice = createSlice({
       }
     },
 
+    setListNfts(state, action: PayloadAction<{list: number[]}>) {
+      state.listNFTs = action.payload.list;
+    },
+
     clearWallet(state) {
       state.wallet_address = '';
       state.owner_contract_address = '';
@@ -31,5 +37,5 @@ const walletSlice = createSlice({
   },
 });
 
-export const {setWalletInfo, clearWallet} = walletSlice.actions;
+export const {setWalletInfo, clearWallet, setListNfts} = walletSlice.actions;
 export default walletSlice.reducer;

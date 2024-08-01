@@ -6,6 +6,7 @@ import Saving from './Saving';
 import Explore from './Explore';
 import NftCard from './NftCard';
 import AvatarInfo from './AvatarInfo';
+import CollectionNFT from './CollectionNFT';
 
 export {
   BottomSheet,
@@ -16,4 +17,5 @@ export {
   Explore,
   NftCard,
   AvatarInfo,
+  CollectionNFT,
 };
