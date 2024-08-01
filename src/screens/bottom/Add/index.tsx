@@ -14,7 +14,7 @@ import {Button} from 'react-native';
 import {useAppDispatch, useAppSelector} from '@redux/hooks';
 import {RootState} from '@redux/store';
 import {setListNfts, setWalletInfo} from '@redux/wallet/walletSlice';
-import {randomInt} from 'crypto';
+
 import {
   getTokenByAddress,
   metadataWalletConnect,
@@ -57,6 +57,8 @@ const AddScreen = () => {
             '0x70B255CF9827E1E0C9a5cc889D71Beef3E2f6Bb4',
             ownerAddress.toString(),
           );
+
+          getListNFTs('0x70b255cf9827e1e0c9a5cc889d71beef3e2f6bb4');
           console.log('Owner address:', ownerAddress);
         })
         .catch((error: any) => {
@@ -72,8 +74,8 @@ const AddScreen = () => {
     const tx = await mintNft(wallet.wallet_address);
   };
 
-  const getListNFTs = async () => {
-    const listNFTs = await getTokenByAddress(wallet.wallet_address);
+  const getListNFTs = async (wallet_address: string) => {
+    const listNFTs = await getTokenByAddress(wallet_address);
     dispatch(setListNfts({list: listNFTs}));
   };
 
@@ -84,7 +86,6 @@ const AddScreen = () => {
         <Web3Modal /> */}
 
         <Button onPress={mintToken} title="Mint Token" />
-        <Button onPress={getListNFTs} title="Get List Token" />
       </QueryClientProvider>
     </WagmiProvider>
   );
