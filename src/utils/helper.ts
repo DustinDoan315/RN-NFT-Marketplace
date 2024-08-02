@@ -1,5 +1,5 @@
 import {icons} from '@assets/index';
-import {nftInstance} from './web3';
+import {marketplaceInstance, nftInstance} from './web3';
 
 const predefinedColors: string[] = ['#FF5733', '#33FF57', '#3357FF', '#F0F033'];
 
@@ -106,4 +106,26 @@ export const getTokenByAddress = async (
     Number(tokenId.toString()),
   );
   return tokenIds;
+};
+
+export const setApprove = async (
+  address: string,
+  tokenId: string | number,
+  senderAddress: string,
+) => {
+  return await nftInstance.methods.approve(address, tokenId).send({
+    from: senderAddress,
+    gasPrice: gasPrice,
+  });
+};
+
+export const listNftByAddress = async (
+  _tokenId: string | number,
+  _price: string | number,
+  senderAddress: string,
+) => {
+  return await marketplaceInstance.methods.listNft(_tokenId, _price).send({
+    from: senderAddress,
+    gasPrice: gasPrice,
+  });
 };
